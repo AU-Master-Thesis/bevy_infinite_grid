@@ -30,3 +30,4 @@ bevy = { version = "0.13.0", default-features = false, features = [
     "ktx2",
     "zstd",
 ] }
+color-eyre = "0.6.2"

@@ -4,11 +4,15 @@ use bevy_infinite_grid::{
 };
 use camera_controller::{CameraController, CameraControllerPlugin};
 
-fn main() {
+fn main() -> color_eyre::eyre::Result<()> {
+    color_eyre::install()?;
+
     App::new()
         .add_plugins((DefaultPlugins, CameraControllerPlugin, InfiniteGridPlugin))
         .add_systems(Startup, setup_system)
         .run();
+
+    Ok(())
 }
 
 fn setup_system(
@@ -18,7 +22,7 @@ fn setup_system(
 ) {
     commands.spawn(InfiniteGridBundle {
         settings: InfiniteGridSettings {
-            // shadow_color: None,
+            shadow_color: None,
             ..default()
         },
         ..default()
